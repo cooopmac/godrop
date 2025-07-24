@@ -1,4 +1,4 @@
-# GoDrop - Cross-Platform File Transfer Tool
+# godrop
 
 A simple, fast file transfer tool built in Go. Works like AirDrop but for any operating system - transfer files between machines on your local network with visual progress bars.
 
