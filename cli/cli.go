@@ -11,6 +11,7 @@ type Config struct {
 	Mode string
 	Port int
 	Path string
+	Host string
 }
 
 type ProgressBar struct {
@@ -58,9 +59,10 @@ func ParseConfig() Config {
 	mode := flag.String("mode", "", "mode: send or receive")
 	port := flag.Int("port", 8888, "port: starting on port 8888")
 	path := flag.String("path", "", "path: path to the file")
+	host := flag.String("host", "localhost", "host: target machine IP address")
 
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "Usage: %s --mode <send|receive> --port <number> [--path <file>]\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Usage: %s --mode <send|receive> --port <number> [--path <file>] [--host <ip>]\n", os.Args[0])
 		flag.PrintDefaults()
 	}
 
@@ -95,5 +97,5 @@ func ParseConfig() Config {
 		fmt.Println("Warning: path is not provided for receive mode, using default path: ", *path)
 	}
 
-	return Config{*mode, *port, *path}
+	return Config{*mode, *port, *path, *host}
 }

@@ -10,7 +10,7 @@ import (
 	"strconv"
 )
 
-func SendFile(port int, path string) {
+func SendFile(host string, port int, path string) {
 	file, err := os.Open(path)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
@@ -26,14 +26,14 @@ func SendFile(port int, path string) {
 	fileSize := fileInfo.Size()
 	fileName := filepath.Base(path)
 
-	conn, err := net.Dial("tcp", fmt.Sprintf("localhost:%d", port))
+	conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", host, port))
 	if err != nil {
 		fmt.Println("Error dialing:", err)
 		return
 	}
 	defer conn.Close()
 
-	fmt.Printf("Sending %s (%d bytes)\n", fileName, fileSize)
+	fmt.Printf("Sending %s (%d bytes) to %s:%d\n", fileName, fileSize, host, port)
 	
 	_, err = conn.Write([]byte(fmt.Sprintf("%d\n", fileSize)))
 	if err != nil {
