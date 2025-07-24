@@ -2,15 +2,6 @@
 
 A simple, fast file transfer tool built in Go. Works like AirDrop but for any operating system - transfer files between machines on your local network with visual progress bars.
 
-## Features
-
--   🚀 **Fast transfers** with real-time progress bars
--   🔄 **Cross-platform** - works on Mac, Windows, Linux
--   🌐 **Network transfers** between different machines
--   📁 **Any file type** - preserves original file extensions
--   ⚡ **Concurrent transfers** - handle multiple files simultaneously
--   🎯 **Simple CLI** - just two commands: send and receive
-
 ## Installation
 
 1. **Clone the repository:**
